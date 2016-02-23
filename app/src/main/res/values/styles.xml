@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowActionBar">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="radiobutton_style">
+        <item name="android:background">@drawable/radio_bg</item>
+
+    </style>
+
+    <style name="checkbox_style">
+        <item name="android:background">@drawable/checkbox_bg</item>
+
+    </style>
+
+    <style name="pagerStyle"
+
+        >
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="style_textView_Primary_price">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="myDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="style_divider">
+        <item name="android:padding">@dimen/ten_margin</item>
+        <item name="android:background">@color/colorDivider</item>
+
+    </style>
+
+    <style name="style_divider_title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorDividerText</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+</resources>

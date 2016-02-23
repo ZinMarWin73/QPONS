@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:paddingLeft="@dimen/fab_margin"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:text="@string/congraulation"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/fab_margin"
+        android:paddingBottom="@dimen/fab_margin"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <TextView
+        android:textColor="@color/colorPrimaryText"
+        android:layout_marginLeft="@dimen/ten_margin"
+        android:layout_marginTop="@dimen/ten_margin"
+        android:textSize="16sp"
+        android:text="@string/thankpurchase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <TextView
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/ten_margin"
+        android:textColor="@color/colorSecondBLKText"
+        android:text="@string/couponsendmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/button_OK"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_gravity="right"
+        android:background="@android:color/transparent"
+        android:textSize="22sp"
+        android:text="@string/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

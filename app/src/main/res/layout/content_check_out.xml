@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/nestscroll_checkout"
+    app:layout_scrollFlags="scroll|enterAlways"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.revotech.qpons.activity.CheckOutActivity"
+    tools:showIn="@layout/activity_check_out">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <RelativeLayout
+        android:id="@+id/relay_view1"
+        android:layout_margin="@dimen/ten_margin"
+        android:paddingBottom="@dimen/ten_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Super duper Cheesy Pizza @ Pizza Hut"
+            android:id="@+id/txt_chkout_product_name"
+            />
+        <TextView
+            android:layout_marginTop="@dimen/ten_margin"
+            android:textColor="@color/colorSecondBLKText"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="SOLD"
+            android:layout_below="@+id/txt_chkout_product_name"
+            android:id="@+id/txt_chkout_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginTop="@dimen/eight_margin"
+            android:id="@+id/layout_aa"
+            android:layout_marginLeft="10px"
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txt_chkout_product_name"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@+id/txt_chkout_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/colorSecondBLKText"
+                android:textStyle="bold"
+                android:text="12,500"
+                android:id="@+id/txt_chkout_orign_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginRight="@dimen/ten_margin"
+
+                android:textColor="@color/colorSecondBLKText"
+                android:textStyle="bold"
+                android:id="@+id/text_chk_mmk_stike"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" MMK"/>
+            <TextView
+                android:id="@+id/txt_chkout_Promotion"
+                style="@style/style_textView_Primary_price"
+                android:text="85,00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                style="@style/style_textView_Primary_price"
+
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" MMK"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+        <View
+            android:id="@+id/view1"
+            android:background="@color/colorDivider"
+            android:layout_below="@+id/relay_view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ten_margin">
+
+        </View>
+        <LinearLayout
+            android:id="@+id/layout_total"
+            android:gravity="center"
+            android:padding="@dimen/ten_margin"
+            android:layout_below="@+id/view1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/txt_checkout_total"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="5px"
+                style="@style/style_textView_Primary_price"
+                android:text="17,000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/mmk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+       <TextView
+           android:id="@+id/txt_checkout"
+           android:background="@color/colorDivider"
+           android:text="@string/checkout"
+           android:padding="@dimen/fab_margin"
+           android:layout_below="@+id/layout_total"
+           style="@style/style_divider_title"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/layout_quantity"
+            android:layout_margin="@dimen/five_margin"
+            android:layout_below="@+id/txt_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/ten_margin"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorSecondBLKText"
+                android:text="@string/quality"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                />
+
+            <LinearLayout
+                android:background="@drawable/button_border_line"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/ten_margin"
+                android:layout_marginRight="@dimen/ten_margin"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                >
+
+                <ImageButton
+                    android:id="@+id/image_minus"
+                    android:padding="@dimen/five_margin"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/minus"
+                    android:layout_width="55dp"
+                    android:scaleType="centerInside"
+                    android:layout_height="fill_parent"
+                    />
+                <Button
+                    android:id="@+id/button_showitme_count"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:text="2"
+                    android:background="@drawable/button_border"
+                    android:layout_width="55dp"
+                    android:layout_height="fill_parent"
+                    />
+                <ImageButton
+                    android:id="@+id/image_plus"
+                    android:padding="@dimen/five_margin"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/plus"
+                    android:layout_width="55dp"
+                    android:scaleType="centerInside"
+                    android:layout_height="fill_parent"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+        <View
+            android:id="@+id/view2"
+            android:background="@color/common_action_bar_splitter"
+            android:layout_below="@+id/layout_quantity"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp">
+
+        </View>
+        <RelativeLayout
+            android:layout_margin="@dimen/ten_margin"
+            android:layout_below="@+id/view2"
+            android:id="@+id/layout_sendgift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+         <TextView
+             android:id="@+id/txt_sendgift"
+             android:textSize="16sp"
+             android:textStyle="bold"
+             android:layout_marginLeft="@dimen/five_margin"
+             android:textColor="@color/colorSecondBLKText"
+             android:text="@string/sendgift"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:padding="@dimen/five_margin"
+            android:id="@+id/checkbox_sendgift"
+            android:button="@android:color/transparent"
+            android:background="@drawable/checkbox_bg"
+            android:layout_alignTop="@+id/txt_sendgift"
+            android:layout_alignBottom="@+id/txt_sendgift"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/five_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+        <View
+            android:layout_below="@+id/layout_sendgift"
+
+            android:id="@+id/view5"
+            android:background="@color/common_action_bar_splitter"
+            android:layout_width="fill_parent"
+            android:layout_height="2px">
+
+        </View>
+        <RelativeLayout
+            android:layout_below="@+id/view5"
+            android:padding="@dimen/ten_margin"
+
+            android:orientation="horizontal"
+            android:id="@+id/layout_dync_giftreceiver"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title_to"
+                android:layout_marginLeft="@dimen/ten_margin"
+                android:text="@string/to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/txt_checkout_username"
+                android:layout_toRightOf="@+id/title_to"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginLeft="@dimen/ten_margin"
+                android:text="John Doe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/sendon_title"
+                android:layout_toLeftOf="@+id/txt_checkout_date"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/ten_margin"
+                android:text="@string/sendon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:id="@+id/txt_checkout_date"
+                android:layout_gravity="right"
+
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginLeft="@dimen/ten_margin"
+                android:text="@string/today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        
+        
+        <TextView
+            android:layout_below="@+id/layout_dync_giftreceiver"
+
+            android:id="@+id/txt_payment"
+            android:background="@color/colorDivider"
+            android:text="@string/payment"
+            android:padding="@dimen/fab_margin"
+            style="@style/style_divider_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_below="@+id/txt_payment"
+            android:id="@+id/layout_radio_selector"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:padding="@dimen/five_margin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioButton
+                    android:layout_margin="@dimen/ten_margin"
+                    android:id="@+id/radio_cash"
+                    android:paddingLeft="@dimen/five_margin"
+                    android:textColor="@color/colorSecondBLKText"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cashdelivery"
+                    android:onClick="onRadioButtonClicked"
+                    android:button="@drawable/radio_bg"
+                    />
+
+                <RadioButton
+                    android:layout_margin="@dimen/ten_margin"
+                    android:button="@drawable/radio_bg"
+                    android:paddingLeft="@dimen/five_margin"
+                    android:id="@+id/radio_mpu"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorSecondBLKText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mpu"
+                    android:onClick="onRadioButtonClicked"
+
+                    />
+            </RadioGroup>
+
+
+            <View
+                android:background="@color/common_action_bar_splitter"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"></View>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_dync_mpu_card"
+            android:visibility="gone"
+            android:layout_below="@+id/layout_radio_selector"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/ten_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layout_dync_mpu_card_text"
+                android:background="@color/colorDivider"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorSecondBLKText"
+
+                    android:layout_marginLeft="@dimen/twenty_five_margin"
+                    android:text="***********12323"
+                    android:padding="@dimen/five_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/mark"/>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/view3"
+                android:layout_below="@+id/layout_dync_mpu_card"
+                android:background="@color/colorsecondDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp">
+
+            </View>
+            <TextView
+                android:textStyle="bold"
+                android:layout_below="@+id/view3"
+                android:id="@+id/text_addnewcard"
+                android:textColor="@color/colorPrimaryText"
+                android:background="@color/colorDivider"
+                android:text="@string/addnewcard"
+                android:paddingTop="@dimen/fab_margin"
+                android:paddingBottom="@dimen/fab_margin"
+                android:paddingLeft="@dimen/twenty_five_margin"
+
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <View
+                android:id="@+id/view4"
+                android:layout_below="@+id/text_addnewcard"
+                android:background="@color/colorsecondDivider"
+                android:layout_width="match_parent"
+                android:layout_height="2px">
+
+            </View>
+        </LinearLayout>
+        <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/button_buy"
+            android:layout_marginTop="@dimen/five_margin"
+            android:padding="@dimen/five_margin"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:text="@string/buy"
+            android:layout_below="@+id/layout_dync_mpu_card"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+
+</android.support.v4.widget.NestedScrollView>

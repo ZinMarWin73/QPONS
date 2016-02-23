@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDivider"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.revotech.qpons.activity.SendAsGiftActivty"
+    tools:showIn="@layout/activity_send_as_gift_activty">
+
+    <LinearLayout
+        android:id="@+id/layout_gift"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+
+
+        <LinearLayout
+            android:padding="@dimen/five_margin"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_margin="@dimen/ten_margin"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_margin="@dimen/ten_margin"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:text="John Doe"
+                android:layout_margin="@dimen/ten_margin"
+                android:background="@android:color/white"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/common_action_bar_splitter"></View>
+        <LinearLayout
+            android:padding="@dimen/five_margin"
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/ten_margin"
+                android:background="@drawable/person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_margin="@dimen/ten_margin"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/ed_reciver_name"
+                android:text="John Doe"
+                android:layout_margin="@dimen/ten_margin"
+                android:background="@android:color/white"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/common_action_bar_splitter"></View>
+
+        <LinearLayout
+            android:padding="@dimen/five_margin"
+            android:orientation="horizontal"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_margin="@dimen/ten_margin"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <EditText
+                android:id="@+id/ed_reciver_email"
+                android:cursorVisible="true"
+                android:padding="3dp"
+                android:layout_weight="3"
+                android:hint="@string/recipieemail"
+                android:layout_margin="@dimen/ten_margin"
+                android:background="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/common_action_bar_splitter"></View>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="@dimen/five_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_margin="@dimen/ten_margin"
+                android:background="@drawable/chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <EditText
+                android:id="@+id/ed_your_msgbody"
+                android:cursorVisible="true"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:layout_weight="3"
+                android:layout_margin="@dimen/ten_margin"
+                android:hint="@string/yourmessage"
+                android:background="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/common_action_bar_splitter"></View>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_date"
+        android:background="@android:color/white"
+        android:layout_below="@+id/layout_gift"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:orientation="horizontal"
+        android:padding="@dimen/five_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:background="@drawable/calender"
+            android:layout_margin="@dimen/ten_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_margin="@dimen/ten_margin"
+            android:textSize="16sp"
+            android:text="@string/sendon"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/white"
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txt_sendgit_date_show"
+            android:layout_margin="@dimen/ten_margin"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"/>
+    </LinearLayout>
+    <View
+        android:layout_below="@+id/lay_date"
+        android:background="@color/common_action_bar_splitter"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"></View>
+
+    <Button
+        android:id="@+id/button_continue"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/five_margin"
+        android:text="@string/conti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+</RelativeLayout>

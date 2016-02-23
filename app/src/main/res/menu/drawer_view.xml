@@ -1,0 +1,42 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/logo_orange"
+            android:id="@+id/nav_first_fragment"
+            android:title="Browse Deal"></item>
+
+
+        </group>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_first_fragment1"
+            android:icon="@drawable/mycoupon"
+            android:title="My Coupons" />
+    </group>
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:title="Terms and Conditions" />
+
+        </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:title="Privacy Policy" />
+
+        </group>
+    <group android:checkableBehavior="single">
+        <item
+
+            android:id="@+id/nav_logout"
+            android:title="Sign In"
+            />
+    </group>
+
+
+</menu>

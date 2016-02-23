@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="265dp">
+    <ImageView
+        android:scaleType="centerCrop"
+        android:background="@drawable/deal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView_mycoupon_prod"/>
+
+    <TextView
+        android:layout_marginTop="2dp"
+        android:id="@+id/txt_Expired1"
+        android:layout_alignParentRight="true"
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:paddingTop="@dimen/five_margin"
+        android:paddingBottom="@dimen/five_margin"
+        android:paddingLeft="@dimen/fab_margin"
+        android:paddingRight="@dimen/fab_margin"
+        android:text="Expired"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:paddingBottom="@dimen/ten_margin"
+        android:gravity="bottom"
+        android:background="@drawable/grey_layer"
+
+        android:id="@+id/relayout_"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginLeft="@dimen/ten_margin"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Super duper Cheesy Pizza @ Pizza Hut"
+        android:id="@+id/txt_mycoupon_product_name"
+        />
+
+        <TextView
+            android:layout_alignEnd="@+id/txt_mycoupon_product_name"
+            android:layout_below="@+id/txt_mycoupon_product_name"
+            android:id="@+id/txt_mycoupon_promotion_price"
+            style="@style/style_textView_Primary_price"
+            android:text="85,00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</RelativeLayout>

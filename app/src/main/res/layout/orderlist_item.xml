@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="14sp"
+    android:textColor="@color/colorPrimaryText"
+    android:padding="@dimen/five_margin"
+    android:drawablePadding="@dimen/eight_margin"
+    android:drawableLeft="@drawable/bullet"
+    android:id="@+id/textView_list_item"
+    >
+
+</TextView>

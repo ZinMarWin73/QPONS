@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingPrefix"
+    android:layout_height="match_parent">
+
+    <!--<ImageView
+        android:id="@+id/img_details"
+        android:background="@drawable/deal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+       >
+        </ImageView>-->
+
+
+    <RelativeLayout
+        android:id="@+id/relay_view1"
+        android:layout_margin="@dimen/ten_margin"
+        android:paddingBottom="@dimen/ten_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Super duper Cheesy Pizza @ Pizza Hut"
+            android:id="@+id/txt_detail_product_name"
+            />
+        <TextView
+            android:layout_marginTop="@dimen/ten_margin"
+            android:textColor="@color/colorSecondBLKText"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="SOLD"
+            android:layout_below="@+id/txt_detail_product_name"
+            android:id="@+id/txt_detail_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginTop="@dimen/eight_margin"
+
+            android:layout_marginLeft="10px"
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txt_detail_product_name"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@+id/txt_list_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/colorSecondBLKText"
+                android:textStyle="bold"
+                android:text="12,500"
+                android:id="@+id/txt_detail_orign_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginRight="@dimen/ten_margin"
+
+                android:textColor="@color/colorSecondBLKText"
+                android:textStyle="bold"
+                android:id="@+id/text_mmk_stike"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" MMK"/>
+            <TextView
+                android:id="@+id/txt_detail_Promotion"
+                style="@style/style_textView_Primary_price"
+                android:text="85,00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                style="@style/style_textView_Primary_price"
+                android:id="@+id/text_mmk"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" MMK"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relay_view2"
+        android:layout_below="@+id/relay_view1"
+        android:layout_marginBottom="@dimen/ten_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       style="@style/style_divider"
+        >
+
+        <TextView
+           style="@style/style_divider_title"
+            android:text="Hightlights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:id="@+id/layout_dym_hightlight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relay_view2"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:padding="@dimen/ten_margin"
+        android:layout_below="@+id/layout_dym_hightlight"
+        android:id="@+id/relay_view3"
+        style="@style/style_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            style="@style/style_divider_title"
+
+            android:text="Maps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+
+        android:id="@+id/layout_dym_maps"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:layout_below="@id/relay_view3"
+        android:orientation="vertical">
+
+        <include
+
+            layout="@layout/activity_maps"
+            ></include>
+
+    <!--    <com.google.android.gms.maps.MapView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            map:uiCompass="true"
+            map:zOrderOnTop="true"
+            map:uiZoomControls="true"
+            android:background="#00000000"/>-->
+
+    </LinearLayout>
+    <RelativeLayout
+        style="@style/style_divider"
+        android:layout_below="@+id/layout_dym_maps"
+        android:id="@+id/relay_view4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Fine Print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/style_divider_title"/>
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:orientation="vertical"
+        android:layout_below="@+id/relay_view4"
+        android:id="@+id/layout_fineprint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        style="@style/style_divider"
+        android:layout_below="@+id/layout_fineprint"
+        android:id="@+id/relay_view5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/style_divider_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About This Deal"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_below="@+id/relay_view5"
+        android:id="@+id/layout_thid_deal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+    </LinearLayout>
+
+     <LinearLayout
+         android:paddingBottom="5px"
+         android:layout_alignParentBottom="true"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@color/colorDivider"
+
+         >
+
+         <LinearLayout
+             android:layout_weight="1"
+             android:orientation="vertical"
+             android:layout_gravity="center"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <TextView
+                 android:gravity="center"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="Deal end ins"
+                 android:textColor="@color/colorSecondBLKText"/>
+             <TextView
+                 android:gravity="center"
+                 android:text="1 day 10:15:23"
+
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textColor="@color/colorPrimaryText"/>
+
+         </LinearLayout>
+         <Button
+             android:id="@+id/btn_buyNow"
+             android:layout_weight="2"
+             android:paddingTop="@dimen/five_margin"
+             android:paddingLeft="@dimen/fab_margin"
+             android:paddingRight="@dimen/fab_margin"
+             android:background="@color/colorPrimary"
+             android:textColor="@color/colorAccent"
+             android:text="Buy Now"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content" />
+     </LinearLayout>
+
+</RelativeLayout>
