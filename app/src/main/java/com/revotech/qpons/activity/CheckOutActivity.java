@@ -24,11 +24,16 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.Fragment;
+
 
 import com.revotech.qpons.R;
 import com.revotech.qpons.activity.constant.Constant;
 import com.revotech.qpons.activity.controller.LayoutController;
 import com.revotech.qpons.activity.data.pojo.ProductData;
+import com.revotech.qpons.activity.fragments.PaymentWebView;
+import com.revotech.qpons.activity.fragments.TermNConditionFragment;
 
 import org.w3c.dom.Text;
 
@@ -152,8 +157,17 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
                                 startActivityForResult(i, Constant.REQUEST_CODE);
                             }
                         }else {
+                         if(rdo_mpu.isChecked()){
 
-                        ShowDialog();
+                                Intent i = new Intent(this , WebViewPaymentActivity.class);
+                                startActivity(i);
+                         }
+                        if(rdo_cash.isChecked()){
+
+                             ShowDialog();
+
+                         }
+
                     }
 
                 break;

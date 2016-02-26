@@ -6,11 +6,11 @@
 
 
     <item
-        android:id="@+id/search_bar"
-        android:orderInCategory="100"
+        android:id="@+id/action_search"
+        android:orderInCategory="200"
         android:title="@string/action_search"
         android:icon="@mipmap/search"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         /> >
 
 

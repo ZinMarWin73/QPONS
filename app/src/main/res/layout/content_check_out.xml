@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -296,6 +297,9 @@
 
 
         <LinearLayout
+            android:paddingBottom="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/ten_margin"
+
             android:layout_below="@+id/txt_payment"
             android:id="@+id/layout_radio_selector"
             android:orientation="vertical"
@@ -338,6 +342,7 @@
 
 
             <View
+
                 android:background="@color/common_action_bar_splitter"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"></View>
@@ -345,7 +350,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
+      <!--  <LinearLayout
             android:id="@+id/layout_dync_mpu_card"
             android:visibility="gone"
             android:layout_below="@+id/layout_radio_selector"
@@ -403,8 +408,9 @@
                 android:layout_height="2px">
 
             </View>
-        </LinearLayout>
-        <Button
+        </LinearLayout>-->
+
+      <!--  <Button
             android:layout_alignParentBottom="true"
             android:id="@+id/button_buy"
             android:layout_marginTop="@dimen/five_margin"
@@ -416,8 +422,7 @@
             android:layout_below="@+id/layout_dync_mpu_card"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content" />-->
     </RelativeLayout>
 
 

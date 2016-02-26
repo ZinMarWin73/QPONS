@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,9 +8,11 @@
     android:fitsSystemWindows="true"
     tools:context="com.revotech.qpons.activity.CheckOutActivity">
 
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/appbarlay"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -41,8 +44,30 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_check_out" />
 
 
+    <include
+        layout="@layout/content_check_out" />
+    <RelativeLayout
+
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/button_buy"
+            android:layout_marginTop="@dimen/five_margin"
+            android:padding="@dimen/five_margin"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:text="@string/buy"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

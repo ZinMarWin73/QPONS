@@ -40,6 +40,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             android:id="@+id/tab_layout"
+            app:tabMode="scrollable"
+
             app:tabTextColor="@color/colorsecondText"
             app:tabSelectedTextColor="@color/colorAccent"
             style="@style/pagerStyle"

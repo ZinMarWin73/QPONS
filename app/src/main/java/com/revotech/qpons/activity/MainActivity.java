@@ -1,10 +1,14 @@
 package com.revotech.qpons.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.service.textservice.SpellCheckerService;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,21 +21,36 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.revotech.qpons.R;
 
+import com.revotech.qpons.activity.constant.Constant;
+import com.revotech.qpons.activity.controller.FaceBookSKD;
+import com.revotech.qpons.activity.controller.LayoutController;
 import com.revotech.qpons.activity.fragments.LogInFragment;
 import com.revotech.qpons.activity.fragments.MyCuponsFragment;
 
 import com.revotech.qpons.activity.fragments.MyCuponsListFragment;
 import com.revotech.qpons.activity.fragments.PrivacyPolicyFragment;
 import com.revotech.qpons.activity.fragments.TermNConditionFragment;
+import com.revotech.qpons.activity.utils.SharePreference;
 
 
 import org.w3c.dom.Text;
@@ -49,11 +68,32 @@ public class MainActivity extends AppCompatActivity {
 
     ActionBarDrawerToggle mDrawerToggle;
     android.os.Handler handler;
+    CallbackManager callbackManager;
+    private MenuItem mSearchAction;
+    private boolean isSearchOpened = false;
+    private EditText edtSeach;
+    LayoutController controller ;
+    SharedPreferences sharePreference;
+     FragmentManager fragmentManager;
+    ;
+
+
+    String email = "" , name ="", phone_number ="";
+    FaceBookSKD fb ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        sharePreference = SharePreference.getPreferences(this);
+        FacebookSdk.sdkInitialize(this);
+        callbackManager = CallbackManager.Factory.create();
+         fb = new FaceBookSKD(MainActivity.this);
+
+        controller = new LayoutController();
 
         setSupportActionBar(toolbar);
 
@@ -65,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-   private void SetUpNagation() {
+
+    private void SetUpNagation() {
         View header = nvDrawer.inflateHeaderView(R.layout.nav_header);
         nvDrawer.getHeaderView(0);
 
@@ -77,6 +118,17 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle = setupDrawerToggle();
         mdrawer.setDrawerListener(mDrawerToggle);
 
+        if(Constant.LoginSession.equals("true")){
+            //nvDrawer.getMenu().getItem(4).setVisible(true);
+            nvDrawer.getMenu().getItem(4).setTitle("Sign out");
+            if(!sharePreference.equals(null)){
+
+                txt_email.setText(SharePreference.readString(this , Constant.EMAILS , ""));
+                txt_username.setText(SharePreference.readString(this , Constant.NAME , ""));
+            }
+
+        }
+
        header.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -84,11 +136,11 @@ public class MainActivity extends AppCompatActivity {
                mdrawer.closeDrawers();
                tabLay.setVisibility(View.GONE);
 
-               FragmentManager fragmentManager = getSupportFragmentManager();
-               fragmentManager.beginTransaction().replace(R.id.flContent, new LogInFragment()).commit();
 
-               //Intent i = new Intent(getApplication() , LogIn_Activity.class);
-               // startActivity(i);
+               LoginControll();
+
+
+
 
            }
        });
@@ -96,13 +148,10 @@ public class MainActivity extends AppCompatActivity {
        nvDrawer.getMenu().getItem(0).setChecked(true);
 
        selectDrawerItem(nvDrawer.getMenu().getItem(0));
-       //FragmentManager fragmentManager = getSupportFragmentManager();
-       //fragmentManager.beginTransaction().replace(R.id.flContent, new MyCuponsFragment()).commit();
-//        MyCuponsFragment.newInstance(0);
+
 
 
     }
-
 
 
 
@@ -115,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(final MenuItem menuItem) {
-                       mdrawer.closeDrawers();
+                        mdrawer.closeDrawers();
 
                         selectDrawerItem(menuItem);
 
@@ -129,9 +178,8 @@ public class MainActivity extends AppCompatActivity {
 
    private void selectDrawerItem(MenuItem menuItem) {
          Fragment fragment = null;
-       final FragmentManager fragmentManager = getSupportFragmentManager();
+       fragmentManager = getSupportFragmentManager();
        handler = new Handler();
-
        // Class fragmentClass = null;
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
@@ -140,9 +188,11 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        tabLay.setTabMode(TabLayout.MODE_SCROLLABLE );
+
                         tabLay.setVisibility(View.VISIBLE);
 
-                        fragmentManager.beginTransaction().replace(R.id.flContent, new MyCuponsFragment()).commit();
+                        fragmentManager.beginTransaction().replace(R.id.flContent, new MyCuponsFragment(Constant.DEALS)).commit();
 
                     }
                 }, 200);
@@ -156,8 +206,9 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        tabLay.setVisibility(View.GONE);
-                        fragmentManager.beginTransaction().replace(R.id.flContent, new MyCuponsListFragment()).commit();
+                        tabLay.setTabMode(TabLayout.MODE_FIXED);
+                        tabLay.setVisibility(View.VISIBLE);
+                        fragmentManager.beginTransaction().replace(R.id.flContent, new MyCuponsFragment(Constant.MYCOUPONS)).commit();
 
                     }
                 }, 200);
@@ -191,24 +242,26 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_logout:
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        tabLay.setVisibility(View.GONE);
-                        fragmentManager.beginTransaction().replace(R.id.flContent, new LogInFragment()).commit();
+                   //  menuItem.setVisible(false);
 
-                    }
-                }, 200);
+                if(menuItem.getTitle().equals("Sign out")){
+                    menuItem.setVisible(true);
+                    LoginManager.getInstance().logOut();
+                    SpellCheckerService.Session session = SpellCheckerService.Session.getActiveSession();
+                    session.closeAndClearTokenInformation();
+                    SharePreference.getPreferences(this).edit().clear();
+
+                }else{
+
+                    LoginControll();
+
+                }
+
 
                 break;
             default:
         }
 
-     try {
-         //   fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
        if(fragment != null){
 
@@ -223,6 +276,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+       // onCreate(outState);
+    }
+
     private ActionBarDrawerToggle setupDrawerToggle() {
         return new ActionBarDrawerToggle(this, mdrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
     }
@@ -234,18 +295,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        mSearchAction = menu.findItem(R.id.action_search);
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+
             return true;
         }
+        int id = item.getItemId();
 
+        switch (id) {
+            case R.id.action_settings:
+                return true;
+            case R.id.action_search:
+                 handleMenuSearch();
+                return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     @Override
@@ -261,5 +338,108 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
 
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(isSearchOpened) {
+            handleMenuSearch();
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    public void handleMenuSearch() {
+
+        ActionBar action= getSupportActionBar();
+        if(isSearchOpened){ //test if the search is open
+
+            action.setDisplayShowCustomEnabled(false); //disable a custom view inside the actionbar
+            action.setDisplayShowTitleEnabled(true); //show the title in the action bar
+
+            //hides the keyboard
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(edtSeach.getWindowToken(), 0);
+
+            //add the search icon in the action bar
+            mSearchAction.setIcon(getResources().getDrawable(R.mipmap.search));
+
+            isSearchOpened = false;
+        } else { //open the search entry
+
+            action.setDisplayShowCustomEnabled(true); //enable it to display a
+            // custom view in the action bar.
+            action.setCustomView(R.layout.menu_searchbar);//add the custom view
+            action.setDisplayShowTitleEnabled(false); //hide the title
+
+            edtSeach = (EditText)action.getCustomView().findViewById(R.id.edSearch); //the text editor
+
+            //this is a listener to do a search when the user clicks on search button
+            edtSeach.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        doSearch();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+
+            edtSeach.requestFocus();
+
+            //open the keyboard focused in the edtSearch
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(edtSeach, InputMethodManager.SHOW_IMPLICIT);
+
+
+            //add the close icon
+            mSearchAction.setIcon(getResources().getDrawable(R.drawable.close));
+
+            isSearchOpened = true;
+        }
+    }
+
+    private void doSearch() {
+
+    }
+    private void LoginControll() {
+        handler = new Handler();
+
+        if(Constant.LoginSession.equals("true")){
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    tabLay.setVisibility(View.GONE);
+                    fragmentManager.beginTransaction().replace(R.id.flContent, new LogInFragment()).commit();
+
+                }
+            }, 200);
+
+        }else{
+            fb.FaceBookInit(callbackManager);
+
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 }

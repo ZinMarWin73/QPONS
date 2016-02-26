@@ -1,8 +1,13 @@
 package com.revotech.qpons.activity.controller;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
+import android.view.KeyEvent;
+import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -81,4 +86,65 @@ public class LayoutController {
 
         return number;
     }
+
+    public void handleMenuSearch(MenuItem menuItem  , Activity context) {
+         MenuItem mSearchAction = menuItem;
+         boolean isSearchOpened = false;
+         EditText edtSeach = null;
+
+        android.app.ActionBar action = context.getActionBar(); //get the actionbar
+
+        if(isSearchOpened){ //test if the search is open
+
+            action.setDisplayShowCustomEnabled(false); //disable a custom view inside the actionbar
+            action.setDisplayShowTitleEnabled(true); //show the title in the action bar
+
+            //hides the keyboard
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(edtSeach.getWindowToken(), 0);
+
+            //add the search icon in the action bar
+            mSearchAction.setIcon(context.getResources().getDrawable(R.mipmap.search));
+
+            isSearchOpened = false;
+        } else { //open the search entry
+
+            action.setDisplayShowCustomEnabled(true); //enable it to display a
+            // custom view in the action bar.
+            action.setCustomView(R.layout.menu_searchbar);//add the custom view
+            action.setDisplayShowTitleEnabled(false); //hide the title
+
+            edtSeach = (EditText)action.getCustomView().findViewById(R.id.edSearch); //the text editor
+
+            //this is a listener to do a search when the user clicks on search button
+            edtSeach.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        doSearch();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+
+            edtSeach.requestFocus();
+
+            //open the keyboard focused in the edtSearch
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(edtSeach, InputMethodManager.SHOW_IMPLICIT);
+
+
+            //add the close icon
+            mSearchAction.setIcon(context.getResources().getDrawable(R.drawable.close));
+
+            isSearchOpened = true;
+        }
+    }
+
+    private void doSearch() {
+
+    }
+
 }

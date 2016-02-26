@@ -13,4 +13,11 @@ public class Constant {
 
     public static final String DEALS = "DEALS";
     public static final String MYCOUPONS = "MYCOUPON";
+
+    public static final String EMAILS = "email";
+    public static final String NAME = "name";
+    public static final  String PH_NUMBER = "phnumber";
+
+    public static  String LoginSession = "session";
+
 }

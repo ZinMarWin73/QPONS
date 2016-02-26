@@ -13,6 +13,7 @@ import com.revotech.qpons.R;
 import com.revotech.qpons.activity.MainActivity;
 import com.revotech.qpons.activity.adapter.Adapter;
 import com.revotech.qpons.activity.adapter.ViewPagerAdapter;
+import com.revotech.qpons.activity.constant.Constant;
 
 /**
  * Created by zinmarwin on 2/2/16.
@@ -24,7 +25,13 @@ public class MyCuponsFragment extends Fragment {
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
-
+    String str_context ;
+    String [] str_title = new String[]{"Travel" , "Food" , "Health" , "Lifestyle" , "Beauty" , "Rooms"};
+    String [] str_title_mycoup = new String [] {"Expired" , "new" ,"Used" };
+    ViewPagerAdapter pagerAdapter;
+    public MyCuponsFragment(String str_title) {
+        this.str_context = str_title;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +43,15 @@ public class MyCuponsFragment extends Fragment {
         //setupViewPager(viewPager);
 
         /** Instantiating FragmentPagerAdapter */
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
+        if(str_context.equals(Constant.DEALS)){
+            pagerAdapter = new ViewPagerAdapter(getChildFragmentManager() , str_title , str_context);
+
+        }else{
+
+            pagerAdapter = new ViewPagerAdapter(getChildFragmentManager() , str_title_mycoup , str_context);
+
+        }
+
 
         /** Setting the pagerAdapter to the pager object */
         viewPager.setAdapter(pagerAdapter);

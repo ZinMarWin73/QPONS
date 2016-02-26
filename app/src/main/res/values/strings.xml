@@ -31,10 +31,10 @@
     <string name="conti">Continue</string>
 
     <string name="header_login"> PLease Log in</string>
-    <string name="login">Log In</string>
+    <string name="sign_up">Sign Up</string>
     <string name="user_name">User Name</string>
     <string name="phone_no">Phone Number</string>
-    <string name="email">Emails</string>
+    <string name="email">Email</string>
 
     <string name="congraulation">Congratulation</string>
     <string name="thankpurchase">Thank you for your purchase!</string>
@@ -45,5 +45,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">1008878469148020</string>
+    <string name="title_activity_web_view_payment">WebViewPaymentActivity</string>
 
 </resources>
