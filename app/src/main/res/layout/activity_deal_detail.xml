@@ -2,10 +2,11 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:banner="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    xmlns:banner="http://schemas.android.com/apk/res-auto"
+
     tools:context="com.revotech.qpons.activity.DealDetailActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -16,7 +17,7 @@
       <android.support.design.widget.CollapsingToolbarLayout
           android:id="@+id/collapsing_toolbar"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
+          android:layout_height="match_parent"
           android:fitsSystemWindows="true"
           app:expandedTitleMarginStart="48dp"
           app:expandedTitleMarginEnd="64dp"
@@ -25,7 +26,13 @@
 
           >
 
-            <android.support.v7.widget.Toolbar
+          <com.revotech.qpons.activity.adapter.SimpleImageBanner
+          android:id="@+id/sib_simple_usage"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          banner:bb_scale="0.5625"/>
+
+          <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
@@ -36,6 +43,8 @@
                 app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:layout_collapseMode="pin"
                 />
+
+
 
       </android.support.design.widget.CollapsingToolbarLayout>
 

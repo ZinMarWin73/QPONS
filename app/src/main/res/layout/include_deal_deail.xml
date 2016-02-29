@@ -13,9 +13,14 @@
         android:layout_width="match_parent"
        >
         </ImageView>-->
-
+    <!--<com.revotech.qpons.activity.adapter.SimpleImageBanner
+        android:id="@+id/sib_simple_usage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        banner:bb_scale="0.5625"/>-->
 
     <RelativeLayout
+        android:layout_below="@+id/sib_simple_usage"
         android:id="@+id/relay_view1"
         android:layout_margin="@dimen/ten_margin"
         android:paddingBottom="@dimen/ten_margin"

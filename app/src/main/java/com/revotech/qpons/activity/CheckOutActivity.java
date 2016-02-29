@@ -29,11 +29,13 @@ import android.support.v4.app.Fragment;
 
 
 import com.revotech.qpons.R;
+import com.revotech.qpons.activity.adapter.SimpleImageBanner;
 import com.revotech.qpons.activity.constant.Constant;
 import com.revotech.qpons.activity.controller.LayoutController;
 import com.revotech.qpons.activity.data.pojo.ProductData;
 import com.revotech.qpons.activity.fragments.PaymentWebView;
 import com.revotech.qpons.activity.fragments.TermNConditionFragment;
+import com.revotech.qpons.activity.utils.DataProvider;
 
 import org.w3c.dom.Text;
 
@@ -74,6 +76,9 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
 
     ProductData prod_data ;
     LayoutController controller ;
+    @Bind(R.id.sib_simple_usage)
+    SimpleImageBanner sid_banner;
+
     boolean flag_gift = false ;
 
 
@@ -109,10 +114,12 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
 
         }
 
+
         collapsingToolbarLayout.setTitle(getTitle());
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
-        collapsingToolbarLayout.setBackgroundResource(prod_data.getmProduct_Image());
         txt_origin_price.setText(prod_data.getmOrigin_Price());
+
+        sid_banner.setSource(DataProvider.getList(DataProvider.urls)).startScroll();
 
         txt_origin_price.setPaintFlags(txt_origin_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         txt_stike.setPaintFlags(txt_stike.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);

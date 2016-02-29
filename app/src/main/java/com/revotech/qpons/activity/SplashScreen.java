@@ -32,7 +32,7 @@ public class SplashScreen extends AppCompatActivity {
 
         //
         initialeLogo();
-        LogoAnimation();
+       // LogoAnimation();
     }
 
     private void initialeLogo() {

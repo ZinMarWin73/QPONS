@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText edtSeach;
     LayoutController controller ;
     SharedPreferences sharePreference;
-     FragmentManager fragmentManager;
-    ;
+    FragmentManager fragmentManager;
+
 
 
     String email = "" , name ="", phone_number ="";
@@ -241,15 +241,22 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
+            case R.id.nav_changeLanguage:
+
+
+
+                break;
             case R.id.nav_logout:
                    //  menuItem.setVisible(false);
 
                 if(menuItem.getTitle().equals("Sign out")){
+
                     menuItem.setVisible(true);
                     LoginManager.getInstance().logOut();
-                    SpellCheckerService.Session session = SpellCheckerService.Session.getActiveSession();
-                    session.closeAndClearTokenInformation();
+                   // SpellCheckerService.Session session = SpellCheckerService.Session.getActiveSession();
+                   // session.closeAndClearTokenInformation();
                     SharePreference.getPreferences(this).edit().clear();
+
 
                 }else{
 

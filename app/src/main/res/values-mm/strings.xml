@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">QPONS$</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">ရွာေဆြရန္</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_deal_detail">DealDetailActivity</string>
+    <string name="title_activity_check_out">CheckOutActivity</string>
+    <string name="total">Total :</string>
+    <string name="mmk">MMK</string>
+    <string name="checkout">Checkout Info </string>
+    <string name="quality">Quantity</string>
+    <string name="sendgift">Send as Gift</string>
+    <string name="payment">Payment</string>
+    <string name="cashdelivery">Cash on Deivery</string>
+    <string name="mpu">MPU </string>
+    <string name="buy">Buy</string>
+    <string name="addnewcard">Add a new card</string>
+    <string name="expirydate">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="savecard">Save the card</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="from">From : </string>
+    <string name="to">To : </string>
+    <string name="recipieemail">Recipient\'s Email</string>
+    <string name="yourmessage">Your message</string>
+    <string name="sendon">Send on</string>
+    <string name="today">Today</string>
+    <string name="conti">Continue</string>
+
+    <string name="header_login"> PLease Log in</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="user_name">User Name</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="email">Email</string>
+
+    <string name="congraulation">Congratulation</string>
+    <string name="thankpurchase">Thank you for your purchase!</string>
+    <string name="couponsendmail">Your coupon has been sent to your email </string>
+    <string name="ok">OK</string>
+    <string name="title_activity_send_as_gift_activty">SendAsGiftActivty</string>
+    <string name="title_activity_log_in_">LogIn_Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">1008878469148020</string>
+    <string name="title_activity_web_view_payment">WebViewPaymentActivity</string>
+
+</resources>

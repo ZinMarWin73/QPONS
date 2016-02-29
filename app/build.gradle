@@ -43,9 +43,10 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.1.0'
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.flyco.banner:FlycoBanner_Lib:1.2.0@aar'
     compile 'com.github.bumptech.glide:glide:3.6.1'
-
+    compile 'com.flyco.pageindicator:FlycoPageIndicator_Lib:1.0.0@aar'
 
 }
